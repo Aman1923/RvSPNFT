@@ -99,7 +99,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`Ready? Rock Paper Scissors.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -130,7 +130,7 @@ function App() {
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(blockchain.account, mintAmount)
+      .mint(blockchain.account)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -202,7 +202,7 @@ function App() {
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
         <a href={CONFIG.MARKETPLACE_LINK}>
-          <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
+          <StyledLogo alt={"logo"} src={"/config/images/logo.gif"} />
         </a>
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
@@ -249,13 +249,13 @@ function App() {
             >
               <StyledButton
                 onClick={(e) => {
-                  window.open("/config/roadmap.pdf", "_blank");
+                  window.open("https://youtu.be/myjEoDypUD8", "_blank");
                 }}
                 style={{
                   margin: "5px",
                 }}
               >
-                Roadmap
+                Relive it
               </StyledButton>
               <StyledButton
                 style={{
@@ -298,7 +298,8 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Excluding gas fees.
+                  Only relevant for 2 days, maybe 3. except mic shinoda 1, that's timeless.
+                  Didn't do mic tyson. Pretty sure he'd sue. Maybe that's why I should. Hmmmmmmmm
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -310,7 +311,7 @@ function App() {
                         color: "var(--accent-text)",
                       }}
                     >
-                      Connect to the {CONFIG.NETWORK.NAME} network
+                      Greatest night in television history NFT
                     </s.TextDescription>
                     <s.SpacerSmall />
                     <StyledButton
@@ -388,7 +389,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "BUSY" : "BUY"}
+                        {claimingNft ? "BUSY" : "MINT"}
                       </StyledButton>
                     </s.Container>
                   </>
@@ -401,7 +402,7 @@ function App() {
           <s.Container flex={1} jc={"center"} ai={"center"}>
             <StyledImg
               alt={"example"}
-              src={"/config/images/example.gif"}
+              src={"/config/images/example1.gif"}
               style={{ transform: "scaleX(-1)" }}
             />
           </s.Container>
@@ -414,9 +415,8 @@ function App() {
               color: "var(--primary-text)",
             }}
           >
-            Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            Once you make the purchase, you cannot undo this action.
+            We'll make a sizeable dono towards helping victims of violence via red cross
+            
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
@@ -425,9 +425,9 @@ function App() {
               color: "var(--primary-text)",
             }}
           >
-            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT. We recommend that you don't lower the
-            gas limit.
+            We'll be making a rock vs paper scissor game, it's gonna be epic (maybe).
+            Then we'll add some more value, metaverse or some shit.
+            The most ambitious project ever since etherrock ofc.
           </s.TextDescription>
         </s.Container>
       </s.Container>
